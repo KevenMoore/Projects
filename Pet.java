@@ -45,11 +45,9 @@ public class Pet {
     public String speak() {
         if (type.equalsIgnoreCase("dog")) {
             return "Woof";
-        }
-        else if (type.equalsIgnoreCase("cat")) {
+        } else if (type.equalsIgnoreCase("cat")) {
             return "Meow";
-        }
-        else {
+        } else {
             return "Noise";
         }
     }
