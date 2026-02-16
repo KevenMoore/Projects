@@ -1,38 +1,88 @@
-public class Pet {
-    // Private data field
-    private String name;
+import java.util.Scanner;
 
-    // Default constructor
+public class Pet {
+
+    private String name;
+    private String type;
+    private int age;
+
     public Pet() {
-        setName("Pet Name"); // use set method as suggested
+        setName("Pet Name");
+        setType("Animal");
+        setAge(1);
     }
 
-    // Setter (mutator)
+    public Pet(String name, String type, int age) {
+        setName(name);
+        setType(type);
+        setAge(age);
+    }
+
     public void setName(String newName) {
         name = newName;
     }
 
-    // Getter (accessor)
+    public void setType(String newType) {
+        type = newType;
+    }
+
+    public void setAge(int newAge) {
+        age = newAge;
+    }
+
     public String getName() {
         return name;
     }
 
-    // toString method
+    public String getType() {
+        return type;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String speak() {
+        if (type.equalsIgnoreCase("dog")) {
+            return "Woof";
+        }
+        else if (type.equalsIgnoreCase("cat")) {
+            return "Meow";
+        }
+        else {
+            return "Noise";
+        }
+    }
+
     public String toString() {
         String info = "Pet information:\n";
-        info += "Name: " + name;
+        info += "Type: " + type + "\n";
+        info += "Name: " + name + "\n";
+        info += "Sound: " + speak() + "\n";
+        info += "Age:  " + age + "\n";
         return info;
     }
 
-    // Main method
     public static void main(String[] args) {
-        // First Pet object using default constructor
-        Pet pet1 = new Pet();
-        System.out.println(pet1.toString());
 
-        // Second Pet object using setName method
-        Pet pet2 = new Pet(); // start with default
-        pet2.setName("Buster");
-        System.out.println(pet2.toString());
+        Scanner sc = new Scanner(System.in);
+
+        Pet p1 = new Pet();
+        System.out.println(p1);
+
+        Pet p2 = new Pet("Buster", "Dog", 11);
+        System.out.println(p2);
+
+        System.out.println("Enter animal type:");
+        String type = sc.nextLine();
+
+        System.out.println("Enter animal name:");
+        String name = sc.nextLine();
+
+        System.out.println("Enter animal age:");
+        int age = sc.nextInt();
+
+        Pet p3 = new Pet(name, type, age);
+        System.out.println(p3);
     }
 }
